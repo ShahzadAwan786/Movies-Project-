@@ -18,9 +18,9 @@ const Movies = () => {
                 <h2 className="text-xl font-bold mb-2">{movies.title || "Untitled Movie"}</h2>
                 <p className="text-gray-700">Size: {movies.metadata.size} MB</p>
                 <p className="text-gray-700">Format: {movies.metadata.format}</p>
-                <p className="text-gray-700">Created_at: {(movies.metadata.created_at)}</p>
-                <button href={movies.videoUrl} className="text-[#525454ee] cursor-pointer bg-[#6dafc1] p-2
-                mt-1 rounded-2xl">Watch Video</button>
+                <p className="text-gray-700 mb-3">Created_at: {(movies.metadata.created_at)}</p>
+                <a href={movies.videoUrl} className="text-[#444646ee] cursor-pointer bg-[#6dafc1] p-3
+                 rounded-2xl">Watch Video</a>
             </div>
 
         </div>

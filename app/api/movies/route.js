@@ -33,8 +33,10 @@ export async function GET() {
         const stats = fs.statSync(videoPath );
 
         const fileSizeInBytes = Math.round((stats.size)/(1024*1024));
-        const creationTime = (stats.birthtime).toDateString();
-        
+        const timeStamp = new Date(stats.birthtime)
+        const time= timeStamp.toUTCString()
+        const creationTime = time.slice(4, 16)
+    
         const format = path.extname(videoName).replace('.', '');
 
         return {
@@ -51,6 +53,5 @@ export async function GET() {
 
 
     }).filter(Boolean)
-console.log(movies);
     return NextResponse.json(movies);
 }
