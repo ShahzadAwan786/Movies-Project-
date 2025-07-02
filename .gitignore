@@ -20,6 +20,8 @@
 # production
 /build
 
+/public/Movies/*
+
 # misc
 .DS_Store
 *.pem
