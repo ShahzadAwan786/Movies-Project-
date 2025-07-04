@@ -12,7 +12,7 @@ const Admin = () => {
 
 
     const handleThumbnailChange = (e) => {
-        debugger
+        
         const file = e.target.files[0];
         setThumbnail(file);
 
