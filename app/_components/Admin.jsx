@@ -1,6 +1,6 @@
 'use client'
 
-import { useState } from "react"
+import { useRef, useState } from "react"
 
 
 const Admin = () => {
@@ -9,6 +9,7 @@ const Admin = () => {
     const [name, setName] = useState('');
     const [previewUrl, setPreviewUrl] = useState('');
     const [submitted, setSubmitted] = useState(false);
+    const form = useRef(null);
 
 
     const handleThumbnailChange = (e) => {
@@ -63,21 +64,21 @@ const Admin = () => {
             setName('');
             setPreviewUrl('');
             setSubmitted(false);
+            form.current.reset();
             alert('Upload Successfully')
         }
         else {
-            alert('Upload Failed')
+            alert(data.message)
         }
 
 
     }
-    console.log({thumbnail})
 
 
 
     return ( 
         <div className="p-4 max-w-md  mx-auto my-10"> 
-            <form className="space-y-4" onSubmit={onhandleSubmit}>
+            <form ref={form} className="space-y-4" onSubmit={onhandleSubmit}>
                 <div className="">
                     <input className= {`border p-2 w-full ${submitted&&!thumbnail ? 'border-red-500':''}`} type="file" accept="image/*" onChange={handleThumbnailChange} />
                     
