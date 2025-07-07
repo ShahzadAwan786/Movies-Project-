@@ -12,6 +12,7 @@ export async function GET() {
 
     const movieDir = path.join(process.cwd(), "public", "Movies")
     const folders = fs.readdirSync(movieDir);
+    debugger
 
     const movies = folders.map((folder) => {
         const folderPath = path.join(movieDir, folder);
@@ -20,6 +21,7 @@ export async function GET() {
         const videoName = filePath.find(file =>  supportedFormats.includes(path.extname(file).replace('.','').toLowerCase()));
         const thumbnailName = filePath.find(file =>  thumbnailFormats.includes(path.extname(file).replace('.','').toLowerCase())
         );
+        console.log(videoName)
 
         const videoPath = path.join(folderPath, videoName)
         const thumbnailPath = path.join(folderPath,thumbnailName)

@@ -33,15 +33,18 @@ fs.mkdirSync(movieFolder);
 
 
 if(image && image.name){
-  const imagePath = path.join(movieFolder,image.name)
+ const ext = image.name.split('.').pop().toLowerCase()
+  const imagePath = path.join(movieFolder,`thumbnail.${ext}`)
   const buffer = Buffer.from(await image.arrayBuffer());
   fs.writeFileSync(imagePath,buffer);
   
 
 }
-
+ 
 if(video && video.name){
-  const videoPath = path.join(movieFolder,video.name)
+    // const ext =  video.type?.split('/')[1]
+     const ext = video.name.split('.').pop().toLowerCase();
+  const videoPath = path.join(movieFolder,`${videoName}.${ext}`)
   const buffer = Buffer.from(await video.arrayBuffer());
   fs.writeFileSync(videoPath,buffer);
   
